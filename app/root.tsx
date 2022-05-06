@@ -11,10 +11,13 @@ import {
   Outlet,
   Scripts,
   ScrollRestoration,
+  useLoaderData,
 } from "@remix-run/react";
 
 import tailwindStylesheetUrl from "./styles/tailwind.css";
 import { getUser } from "./session.server";
+import Navbar from "./components/Header/Header";
+import { data } from "msw/lib/types/context";
 
 export const links: LinksFunction = () => {
   return [{ rel: "stylesheet", href: tailwindStylesheetUrl }];
@@ -36,6 +39,18 @@ export const loader: LoaderFunction = async ({ request }) => {
   });
 };
 
+type ProvidersProps = {
+  children: React.ReactNode;
+};
+export const Providers = (props: ProvidersProps) => {
+  const { children } = props;
+  return (
+    <ThemeProvider theme={data.requestInfo.session.theme}>
+      {children}
+    </ThemeProvider>
+  );
+};
+
 export default function App() {
   return (
     <html lang="en" className="h-full">
@@ -43,11 +58,12 @@ export default function App() {
         <Meta />
         <Links />
       </head>
-      <body className="h-full">
+      <body className="h-full bg-white transition duration-500 dark:bg-gray-900">
+        <Navbar />
         <Outlet />
         <ScrollRestoration />
         <Scripts />
-        <LiveReload />
+        {process.env.NODE_ENV === "development" && <LiveReload />}
       </body>
     </html>
   );
