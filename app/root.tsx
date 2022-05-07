@@ -14,10 +14,11 @@ import {
   useLoaderData,
 } from "@remix-run/react";
 
-import tailwindStylesheetUrl from "./styles/tailwind.css";
+import tailwindStylesheetUrl from "./tailwind.css";
 import { getUser } from "./session.server";
 import Navbar from "./components/Header/Header";
 import { data } from "msw/lib/types/context";
+import clsx from "clsx";
 
 export const links: LinksFunction = () => {
   return [{ rel: "stylesheet", href: tailwindStylesheetUrl }];
@@ -44,16 +45,12 @@ type ProvidersProps = {
 };
 export const Providers = (props: ProvidersProps) => {
   const { children } = props;
-  return (
-    <ThemeProvider theme={data.requestInfo.session.theme}>
-      {children}
-    </ThemeProvider>
-  );
+  return <>{children}</>;
 };
 
 export default function App() {
   return (
-    <html lang="en" className="h-full">
+    <html lang="en" className="dark h-full">
       <head>
         <Meta />
         <Links />
