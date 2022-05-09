@@ -19,3 +19,9 @@
   font-style: normal;
   font-display: swap;
 }
+
+@layer utilities {
+  .btn-primary {
+    @apply h-10 px-5 text-indigo-100 transition-colors duration-150 bg-indigo-700 rounded-full focus:shadow-outline hover:bg-indigo-800;
+  }
+}

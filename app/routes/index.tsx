@@ -7,7 +7,12 @@ export default function Index() {
     <div>
       <HeroSection />
       <main className="mx-auto max-w-6xl px-4 sm:px-6 md:px-8">
-        <Typography>asdasd</Typography>
+        <Typography as="h1" className="text-xs">
+          Frontend Developer
+        </Typography>
+        <Typography as="h2" className="text-4xl">
+          Developing great experiences for web using modern technologies
+        </Typography>
       </main>
     </div>
   );
