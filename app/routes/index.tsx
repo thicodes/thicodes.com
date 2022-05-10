@@ -1,4 +1,5 @@
 import { Link } from "@remix-run/react";
+import Button from "~/components/Button/Button";
 import HeroSection from "~/components/HeroSection/HeroSection";
 import Typography from "~/components/Typography/Typography";
 
@@ -13,6 +14,7 @@ export default function Index() {
         <Typography as="h2" className="text-4xl">
           Developing great experiences for web using modern technologies
         </Typography>
+        <Button variant="primary">asd</Button>
       </main>
     </div>
   );
