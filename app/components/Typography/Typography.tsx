@@ -10,7 +10,12 @@ const Typography = (props: TypographyProps) => {
   const { as, className, children } = props;
   const Component = as || "p";
   return (
-    <Component className={clsx("prose-light prose dark:prose-dark", className)}>
+    <Component
+      className={clsx(
+        "prose-light prose leading-tight dark:prose-dark",
+        className
+      )}
+    >
       {children}
     </Component>
   );

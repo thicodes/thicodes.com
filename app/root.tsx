@@ -16,7 +16,7 @@ import {
 
 import tailwindStylesheetUrl from "./tailwind.css";
 import { getUser } from "./session.server";
-import Navbar from "./components/Header/Header";
+import Header from "./components/Header/Header";
 import { data } from "msw/lib/types/context";
 import clsx from "clsx";
 
@@ -56,7 +56,7 @@ export default function App() {
         <Links />
       </head>
       <body className="h-full bg-white transition duration-500 dark:bg-gray-900">
-        <Navbar />
+        <Header />
         <Outlet />
         <ScrollRestoration />
         <Scripts />

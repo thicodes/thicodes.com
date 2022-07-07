@@ -1,5 +1,7 @@
 import type { NavLinkProps as NavLinkRemixProps } from "@remix-run/react";
 import { Link, NavLink as NavLinkRemix } from "@remix-run/react";
+import GithubIcon from "../icons/GithubIcon";
+import SunIcon from "../icons/SunIcon";
 
 interface NavLinkProps extends NavLinkRemixProps {
   children: React.ReactNode;
@@ -33,7 +35,10 @@ const Header = () => {
           <NavLink to="/blog">Blog</NavLink>
           <NavLink to="/experiences">Experiences</NavLink>
         </nav>
-        <div></div>
+        <div>
+          <SunIcon />
+          <GithubIcon />
+        </div>
       </header>
     </div>
   );

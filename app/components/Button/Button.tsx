@@ -2,22 +2,33 @@ import clsx from "clsx";
 
 type ButtonProps = {
   children: React.ReactNode;
+  variant?: "contained" | "outlined";
   className?: string;
-  variant?: "primary";
+  color?: "primary" | "secondary";
   href?: string;
 };
 const Button = (props: ButtonProps) => {
-  const { href, variant, className } = props;
+  const {
+    href,
+    color = "primary",
+    variant = "contained",
+    className,
+    ...rest
+  } = props;
   const Component = href ? ButtonLink : ButtonBase;
   return (
     <Component
       className={clsx(
-        "rounded-full px-4 py-4 text-indigo-100 transition-colors duration-150 hover:bg-orange-800",
+        "transition-borders rounded-full px-4 py-4 text-indigo-100 transition-colors duration-150",
         {
-          "bg-orange-600": variant === "primary",
-        }
+          "bg-primary": color === "primary" && variant === "contained",
+          "bg-secondary": color === "secondary" && variant === "contained",
+          "border-primary": color === "primary" && variant === "outlined",
+          "border-secondary": color === "secondary" && variant === "outlined",
+        },
+        className
       )}
-      {...props}
+      {...rest}
     />
   );
 };

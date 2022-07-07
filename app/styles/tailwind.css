@@ -21,5 +21,17 @@
 }
 
 @layer utilities {
+  .bg-primary {
+    @apply bg-orange-600 hover:bg-orange-700;
+  }
+  .bg-secondary {
+    @apply bg-slate-100 hover:bg-slate-50 dark:text-black;
+  }
+  .border-primary {
+    @apply border-2 border-orange-600 hover:border-red-600;
+  }
+  .border-secondary {
+    @apply border-2 border-gray-600 hover:border-gray-50;
+  }
 
 }
